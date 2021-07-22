@@ -13,7 +13,7 @@ jobs:
       - name: Install Ganache 
         run: npm install -g ganache-cli 
       - name: Start ganache
-        run: ./node_modules/ganache-cli/cli.js -p 8545 
+        run: /usr/local/lib/node_modules/ganache-cli/cli.js -p 8545 
      
       - name: Migrate Contracts
         run: ./node_modules/truffle/build/cli.bundled.js migrate --network development
