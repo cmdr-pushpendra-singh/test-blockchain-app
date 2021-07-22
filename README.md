@@ -19,19 +19,19 @@ After download ganache, run ganache for your local blockchain environment.
 ## Deploy Contract
 Open terminal of your
 
-### truffle depoly
+### `truffle depoly`
 
 ## Migrate Contract
 
-### truffle migrate
+### `truffle migrate`
 
 ## For Reset Migration
 
-### truffle migrate --reset
+### `truffle migrate --reset`
 
 ## Run test for smart contract 
 
-### truffle test
+### `truffle test`
 
 
 ## Run React Scripts
