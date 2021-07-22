@@ -1,9 +1,14 @@
 # Overview
-TEST-BLoCKCHAIN-APP
+TEST-BLOCKCHAIN-APP
 
 ## Available Scripts
 
-In the project directory, you can run:
+Before run our react app. we need to some configuration.
+
+## Add Metamask extension
+Before start any blockchain app we need pre-downloaded Metamask extension from (https://metamask.io/)
+
+
 
 ##  Truffle environment Setup on local system
 
@@ -11,7 +16,25 @@ We need to setup truffle on local system. for this we need to download ganache b
 
 After download ganache, run ganache for your local blockchain environment.
 
+## Deploy Contract
+Open terminal of your
 
+### truffle depoly
+
+## Migrate Contract
+
+### truffle migrate
+
+## For Reset Migration
+
+### truffle migrate --reset
+
+## Run test for smart contract 
+
+### truffle test
+
+
+## Run React Scripts
 
 ### `yarn start`
 
@@ -36,4 +59,3 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-# test-blockchain-app
