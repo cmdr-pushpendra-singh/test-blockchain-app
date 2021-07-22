@@ -6,25 +6,30 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
       - uses: actions/checkout@v1
-      
       - name: Install Dependencies
         run: yarn
-      
+
+
       - name: Install truffle 
-        run: npm install -g truffle
+        run: npm install -g truffle 
+
 
       - name: Install Ganache 
         run: npm install -g ganache-cli 
+
+        
+      - name: Start ganache
+        run:  /usr/local/lib/node_modules/ganache-cli/cli.js && kill $(lsof -t -i:8545)
+              kill $(lsof -t -i:8545)
       
       
-      - uses: Start ganache
-      - run:  /usr/local/lib/node_modules/ganache-cli/cli.js         
-      # - name: Migrate Contracts
-      - run:  /usr/local/lib/node_modules/truffle/build/cli.bundled.js migrate --network development
+      - name: Migrate Contracts
+        run:  /usr/local/lib/node_modules/truffle/build/cli.bundled.js migrate --network development
       
       
       - name: Test Contracts
         run:  /usr/local/lib/node_modules/truffle/build/cli.bundled.js test --network development
+      
       - name: Stop ganache
         run: kill $(lsof -t -i:8545)
         
