@@ -12,6 +12,8 @@ jobs:
         run: npm install -g truffle 
       - name: Install Ganache 
         run: npm install -g ganache-cli 
+      - name: Start Ganache 
+        run: truffle develop
       - name: Migrate contract 
         run: truffle migrate
       - name: Truffle Test
