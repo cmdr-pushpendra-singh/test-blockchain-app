@@ -8,6 +8,13 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install Dependencies
         run: yarn
-      - name: Truffle Test
-        run: truffle test --watchAll=false
+      - name: run ganache
+        run: ./node_modules/ganache-cli/cli.js -p 8545 --gasLimit=0x1fffffffffffff --allowUnlimitedContractSize -e 1000000000 > /dev/null &
+        while netstat -lnt | awk '$4 ~ /:8545$/ {exit 1}'; do sleep 5; done
+      - name: Migrate Contracts
+        run: ./node_modules/truffle/build/cli.bundled.js migrate --network development
+      - name: Test Contracts
+        run: ./node_modules/truffle/build/cli.bundled.js test --network development
+      - name: Stop ganache
+        run: kill $(lsof -t -i:8545)  
         
