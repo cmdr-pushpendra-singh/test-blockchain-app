@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { userReducer,getMsgReducer,setIcTransferReducer,transferTokenReducer,setMintReducer, coinTransferReducer ,paidMintReducer,setBalance} from './connector';
+import { userReducer,getMsgReducer,setIcTransferReducer,setMintReducer, coinTransferReducer ,paidMintReducer,setBalance} from './connector';
 
 const rootReducer = combineReducers({
   user: userReducer,

@@ -31,20 +31,20 @@ export function getMsgReducer(state = { type: "", data: false, msg: { text: "" }
 
 }
 
-export function transferTokenReducer(state = { type: "", data: false, msg: { text: "" } }, action) {
+// export function transferTokenReducer(state = { type: "", data: false, msg: { text: "" } }, action) {
 
-  switch (action.type) {
-    case "SEND_TOKEN_SUCCESS":
-      return action.json;
-      break;
-    case "SEND_TOKEN_FAIL":
-      return action.json;
-      break;
+//   switch (action.type) {
+//     case "SEND_TOKEN_SUCCESS":
+//       return action.json;
+//       break;
+//     case "SEND_TOKEN_FAIL":
+//       return action.json;
+//       break;
 
 
-  }
+//   }
 
-}
+// }
 export function setIcTransferReducer(state = { type: "", data: false, msg: { text: "" } }, action) {
 
   switch (action.type) {
