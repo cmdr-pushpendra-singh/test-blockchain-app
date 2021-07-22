@@ -39,18 +39,18 @@ jobs:
       
       - name: Start ganache
         uses: |
-          ./node_modules/ganache-cli/cli.js -p 9545 --gasLimit=0x1fffffffffffff --allowUnlimitedContractSize -e 1000000000 > /dev/null &
+          /usr/local/lib/node_modules/ganache-cli/cli.js -p 9545 --gasLimit=0x1fffffffffffff --allowUnlimitedContractSize -e 1000000000 > /dev/null &
           while netstat -lnt | awk '$4 ~ /:9545$/ {exit 1}'; do sleep 5; done ;kill $(lsof -t -i:9545)
           steps.timeout-minutes: 1 
 
       
       
       - name: Migrate Contracts
-        uses: ./node_modules/truffle/build/cli.bundled.js migrate --network development
+        uses: /usr/local/lib/node_modules/truffle/build/cli.bundled.js migrate --network development
 
 
       - name: Test Contracts
-        run: ./node_modules/truffle/build/cli.bundled.js test --network development
+        run: /usr/local/lib/node_modules/truffle/build/cli.bundled.js test --network development
       
       
       - name: Stop ganache
