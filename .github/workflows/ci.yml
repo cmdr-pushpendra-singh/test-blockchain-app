@@ -18,7 +18,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install npm packages
-        run: npm install
+        run: yarn
       - name: Start ganache
         run: |
           ./node_modules/ganache-cli/cli.js -p 8545 --gasLimit=0x1fffffffffffff --allowUnlimitedContractSize -e 1000000000 > /dev/null &
