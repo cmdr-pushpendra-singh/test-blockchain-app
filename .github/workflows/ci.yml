@@ -8,12 +8,12 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install Dependencies
         run: yarn
-      - name: run ganache
-        run: ./node_modules/ganache-cli/cli.js -p 8545 
-      - name: Migrate Contracts
-        run: ./node_modules/truffle/build/cli.bundled.js migrate --network development
-      - name: Test Contracts
-        run: ./node_modules/truffle/build/cli.bundled.js test --network development
-      - name: Stop ganache
-        run: kill $(lsof -t -i:8545)  
-        
+    script:
+    - apt-get update && apt-get install -y gawk
+    - npm install
+    - npm install -g truffle
+    - npm install -g ganache-cli
+    - sleep 5
+    - truffle migrate
+    - truffle test
+    - npm run stop
