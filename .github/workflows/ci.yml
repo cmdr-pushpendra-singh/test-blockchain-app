@@ -1,0 +1,15 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  buildAndTest:
+    name: Build and Test
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Dependencies
+        run: yarn
+      - name: Build
+        run: yarn build
+      - name: Truffle Test
+        run: truffle test --watchAll=false
+        

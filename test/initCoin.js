@@ -114,19 +114,17 @@ contract('InitCoin', async (accounts) => {
 
       const chance = new Chance()
       const account_address = chance.pickone(accounts)
-      mint_balance = toBN(1E19).muln(chance.natural({min: 1, max: 100}));
+      mint_balance = toBN(1E19).muln(chance.natural({ min: 1, max: 100 }));
 
       let result_1 = await initCoinContract.balanceOf.call(account_address)
 
       let initialBalance = result_1 //.toString()
 
-
-      const mint = await initCoinContract.freeMinting(account_address,mint_balance);
+      const mint = await initCoinContract.freeMinting(account_address, mint_balance);
 
       let result_2 = await initCoinContract.balanceOf.call(account_address)
 
       let afterMintBalance = result_2 //.toString()
-
 
 
       // assert(afterMintBalance == initialBalance + mint_balance)
@@ -134,13 +132,9 @@ contract('InitCoin', async (accounts) => {
 
       // console.log("result",afterMintBalance.eq(mint_balance.add(initialBalance)))
       // console.log("afterMintBalance =",afterMintBalance.toString())
-      console.log("initialBalance   =",initialBalance.toString())
-      console.log("mint_balance     =",mint_balance.toString())
-      console.log("incremented_balance     =",mint_balance.add(initialBalance).toString())
-
-
-
-
+      console.log("initialBalance   =", initialBalance.toString())
+      console.log("mint_balance     =", mint_balance.toString())
+      console.log("incremented_balance     =", mint_balance.add(initialBalance).toString())
 
     })
 
