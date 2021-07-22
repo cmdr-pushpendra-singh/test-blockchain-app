@@ -18,13 +18,12 @@ jobs:
       
       
       - uses: Start ganache
-
         run:  /usr/local/lib/node_modules/ganache-cli/cli.js         
       # - name: Migrate Contracts
         run:  /usr/local/lib/node_modules/truffle/build/cli.bundled.js migrate --network development
       
       
-        - name: Test Contracts
+      - name: Test Contracts
         run:  /usr/local/lib/node_modules/truffle/build/cli.bundled.js test --network development
       - name: Stop ganache
         run: kill $(lsof -t -i:8545)
