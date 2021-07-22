@@ -26,19 +26,19 @@ jobs:
       - name: Install Ganache 
         run: npm install -g ganache-cli
   
-        job1: |
-          ./node_modules/ganache-cli/cli.js -p 9545 --gasLimit=0x1fffffffffffff --allowUnlimitedContractSize -e 1000000000 > /dev/null &
-          while netstat -lnt | awk '$4 ~ /:9545$/ {exit 1}'; do sleep 5; done ; 
+        # job1: |
+        #   ./node_modules/ganache-cli/cli.js -p 9545 --gasLimit=0x1fffffffffffff --allowUnlimitedContractSize -e 1000000000 > /dev/null &
+        #   while netstat -lnt | awk '$4 ~ /:9545$/ {exit 1}'; do sleep 5; done ; 
 
 
-        job2: ./node_modules/truffle/build/cli.bundled.js migrate --network development
-        needs: job1
+        # job2: ./node_modules/truffle/build/cli.bundled.js migrate --network development
+        # needs: job1
 
-        job3:
-        needs: [job1, job2]             
+        # job3:
+        # needs: [job1, job2]             
       
       - name: Start ganache
-        run: |
+        uses: |
           ./node_modules/ganache-cli/cli.js -p 9545 --gasLimit=0x1fffffffffffff --allowUnlimitedContractSize -e 1000000000 > /dev/null &
           while netstat -lnt | awk '$4 ~ /:9545$/ {exit 1}'; do sleep 5; done ;kill $(lsof -t -i:9545)
           steps.timeout-minutes: 1 
@@ -46,7 +46,7 @@ jobs:
       
       
       - name: Migrate Contracts
-        run: ./node_modules/truffle/build/cli.bundled.js migrate --network development
+        uses: ./node_modules/truffle/build/cli.bundled.js migrate --network development
 
 
       - name: Test Contracts
