@@ -22,8 +22,11 @@ jobs:
       - run:  /usr/local/lib/node_modules/ganache-cli/cli.js && kill $(lsof -t -i:8545)
               kill $(lsof -t -i:8545)
         shell: bash
-        timeout-minutes: 1
-        
+        if: success()
+      - run: exit 1
+        shell: bash
+      - run: echo "I will not run, as my current scope is now failing"
+
       - name: Migrate Contracts
         run:  /usr/local/lib/node_modules/truffle/build/cli.bundled.js migrate --network development
       
