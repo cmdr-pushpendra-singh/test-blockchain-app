@@ -13,8 +13,7 @@ jobs:
       - name: Install Ganache 
         run: npm install -g ganache-cli 
       - name: Start ganache
-        run:  /usr/local/lib/node_modules/ganache-cli/cli.js -p 8545 --gasLimit=0x1fffffffffffff--allowUnlimitedContractSize -e 1000000000 > /dev/null &
-        while netstat -lnt | awk '$4 ~ /:9545$/ {exit 1}';
+        run:  /usr/local/lib/node_modules/ganache-cli/cli.js && /usr/local/lib/node_modules/truffle/build/cli.bundled.js migrate --network development
       - name: Migrate Contracts
         run:  /usr/local/lib/node_modules/truffle/build/cli.bundled.js migrate --network development
       - name: Test Contracts
