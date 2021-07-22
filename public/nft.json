@@ -1,0 +1,66 @@
+
+{
+  "attributes": [
+    {
+      "trait_type": "Head",
+      "value": "Orang"
+    },
+    {
+      "trait_type": "Left Arm",
+      "value": "Orang"
+    },
+    {
+      "trait_type": "Left Leg",
+      "value": "Wood"
+    },
+    {
+      "trait_type": "Right Arm",
+      "value": "Chadium12"
+    },
+    {
+      "trait_type": "Right Leg",
+      "value": "Chadium12"
+    },
+    {
+      "trait_type": "Torso",
+      "value": "Chimp"
+    },
+    {
+      "trait_type": "Defense",
+      "value": 14,
+      "display_type": "boost_percentage"
+    },
+    {
+      "trait_type": "Attack",
+      "value": 46,
+      "display_type": "boost_percentage"
+    },
+    {
+      "trait_type": "Intellect",
+      "value": 92,
+      "display_type": "boost_percentage"
+    },
+    {
+      "trait_type": "Speed",
+      "value": 44,
+      "display_type": "boost_percentage"
+    },
+    {
+      "trait_type": "Ability",
+      "value": 195,
+      "display_type": "boost_percentage"
+    },
+    {
+      "trait_type": "Nature",
+      "value": 37,
+      "display_type": "boost_percentage"
+    }
+  ],
+  "name": "Insane Marcel",
+  "background_color": "F9DFDF",
+  "description": "<p>Ape Island is an experimental playground for NFTs, DeFi, and gaming. Season 2 of Ape Island consists of 10,000 NFTs chosen by players from a pool of 262,144 possible combinations. Alpha Apes are unique 1 of 1 NFTs and are never repeated within Ape Island.\n\nRarity: Common <br/>\nAlpha: No\n</p>\n",
+  "external_url": "https://testnets.opensea.io/assets/0xe52293ba4cdf11ea5b8a29cb889875b4ee365a6a/2",
+  "image": "https://ape-demo-v1-87432479382524423490342.s3.amazonaws.com/ape_images/ape__1371_1617865897.png",
+  "is_alpha": false,
+  "id": 1371
+}
