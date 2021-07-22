@@ -17,7 +17,7 @@ jobs:
         run: npm install -g ganache-cli 
       
       
-        - uses: Start ganache
+      - uses: Start ganache
 
         run:  /usr/local/lib/node_modules/ganache-cli/cli.js         
       # - name: Migrate Contracts
