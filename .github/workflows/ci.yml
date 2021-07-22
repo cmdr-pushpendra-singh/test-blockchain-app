@@ -3,18 +3,18 @@ on: [push, pull_request]
 jobs:
   buildAndTest:
     name: Build and Test
-    runs-on: ubuntu-latest
-    script:
-      - apt-get update && apt-get install -y gawk
-      - npm install
-      - npm install -g truffle
-      - npm install -g ganache-cli
-      - sleep 5
-      - truffle migrate
-      - truffle test
-      - npm run stop    
+    runs-on: ubuntu-latest    
     steps:
       - uses: actions/checkout@v1
       - name: Install Dependencies
         run: yarn
-   
+      - name: Install truffle 
+        run: npm install -g truffle 
+      - name: Install Ganache 
+        run: npm install -g ganache-cli 
+      - name: Migrate contract 
+        run: truffle migrate
+      - name: Truffle Test
+        run: truffle test --watchAll=false
+        
+
