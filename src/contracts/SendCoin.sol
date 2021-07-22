@@ -26,12 +26,12 @@ contract SendCoin {
 
     event Bought(uint256 amount);
 
-    function Buy(IERC20 _token, uint256 amount) public payable {
-        // uint256 amountTobuy = amount;
-        uint256 amountTobuy = msg.value;
-        uint256 tokenBalance = _token.balanceOf(address(this));
-        require(amountTobuy > 0, "You need to send some ether");
-        // require(amountTobuy <= tokenBalance, "Not enough tokens in the reserve");
-        _token.transfer(msg.sender, amountTobuy);
-    }
+    // function Buy(IERC20 _token, uint256 amount) public payable {
+    //     // uint256 amountTobuy = amount;
+    //     uint256 amountTobuy = msg.value;
+    //     uint256 tokenBalance = _token.balanceOf(address(this));
+    //     require(amountTobuy > 0, "You need to send some ether");
+    //     // require(amountTobuy <= tokenBalance, "Not enough tokens in the reserve");
+    //     _token.transfer(msg.sender, amountTobuy);
+    // }
 }
