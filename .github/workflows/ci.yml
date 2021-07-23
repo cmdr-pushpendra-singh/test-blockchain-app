@@ -15,7 +15,7 @@ jobs:
         run: npm install -g ganache-cli 
 
       - run: /usr/local/lib//node_modules/ganache-cli/cli.js -p 8545 --gasLimit=0x1fffffffffffff --allowUnlimitedContractSize -e 1000000000 > /dev/null &
-        while netstat -lnt | awk '$4 ~ /:8545$/ {exit 1}'  do sleep 5; done;
+        while netstat -lnt | awk '$4 ~ /:8545$/ {exit 1}';
 
 
   build: 
