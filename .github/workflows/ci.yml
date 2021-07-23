@@ -4,7 +4,11 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - name: Set up NodeJS 12
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
       - name: Cache npm packages
         uses: actions/cache@v2
         with:
@@ -12,19 +16,22 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-            
-      - name: Install Dependencies
+      - name: Install npm packages
         run: yarn
-      
+
       - name: Install truffle 
         run: npm install -g truffle 
     
       - name: Install Ganache 
-        run: npm install -g ganache-cli 
-
-      - run: /usr/local/lib//node_modules/ganache-cli/cli.js -p 8545 --gasLimit=0x1fffffffffffff --allowUnlimitedContractSize -e 1000000000 > /dev/null &
-        while netstat -lnt | awk '$4 ~ /:8545$/ {exit 1}';
-
+        run: npm install -g ganache-cli
+  
+      
+      - name: Start ganache
+        run: |
+          ./node_modules/ganache-cli/cli.js -p 9545 --gasLimit=0x1fffffffffffff --allowUnlimitedContractSize -e 1000000000 > /dev/null &
+          while netstat -lnt | awk '$4 ~ /:9545$/ {exit 1}'; do sleep 5; done ;
+          kill $(lsof -t -i:9545)
+          steps.timeout-minutes: 1 
 
   build: 
     needs: setup
