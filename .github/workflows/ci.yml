@@ -24,8 +24,19 @@ jobs:
     steps: 
       - name: Migrate contract 
         run: truffle migrate
+     
       - name: Truffle Test
         run: truffle test --watchAll=false
+     
+      - name: Migrate Contracts
+        run: ./node_modules/truffle/build/cli.bundled.js migrate --network development
+ 
   
-  # shutdown:
+  shutdown:
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Stop ganache
+        run: kill $(lsof -t -i:9545)
+      
 
