@@ -5,6 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Cache npm packages
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            
       - name: Install Dependencies
         run: yarn
       
